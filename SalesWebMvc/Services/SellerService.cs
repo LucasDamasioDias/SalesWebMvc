@@ -5,23 +5,34 @@ namespace SalesWebMvc.Services
 {
     public class SellerService
     {
-        private readonly SalesWebMvcContext _contex;
+        private readonly SalesWebMvcContext _context;
 
-        public SellerService(SalesWebMvcContext contex)
+        public SellerService(SalesWebMvcContext context)
         {
-            _contex = contex;
+            _context = context;
         }
 
         public List<Seller> FindAll()
         {
-            return _contex.Seller.ToList();
+            return _context.Seller.ToList();
         }
 
         public void Insert(Seller obj) 
+        {            
+            _context.Add(obj);
+            _context.SaveChanges();
+        }
+
+        public Seller FindById(int id) 
         {
-            obj.Department = _contex.Department.First();
-            _contex.Add(obj);
-            _contex.SaveChanges();
+            return _context.Seller.FirstOrDefault(obj => obj.Id == id);
+        }
+
+        public void Remove(int id) 
+        {
+            var obj = _context.Seller.Find(id);
+            _context.Seller.Remove(obj);
+            _context.SaveChanges();
         }
     }
 }
