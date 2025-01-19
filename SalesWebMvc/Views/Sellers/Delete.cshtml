@@ -6,40 +6,29 @@
 
 <h2>@ViewData["Title"]</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3 class="text-danger">Are you sure you want to delete this seller?</h3>
+
 <div>
-    <h4>Seller</h4>
+    <h4>Seller Details</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.BirthDate)
-        </dt>
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.BirthDate)
-        </dd>
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.BaseSalary)
-        </dt>
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.BaseSalary)
-        </dd>
+        <dt class="col-sm-3">Name</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Name)</dd>
+
+        <dt class="col-sm-3">Email</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
+
+        <dt class="col-sm-3">Birth Date</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.BirthDate)</dd>
+
+        <dt class="col-sm-3">Base Salary</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.BaseSalary)</dd>
     </dl>
 
-    <form asp-action="Delete">
+    <form asp-action="Delete" class="mt-4">
         <input type="hidden" asp-for="Id" />
-        <button type="submit" class="btn btn-danger">Delete</button>
+
+        <button type="submit" class="btn btn-danger me-2">Delete</button>
         <a asp-action="Index" class="btn btn-secondary">Back to List</a>
     </form>
 </div>
